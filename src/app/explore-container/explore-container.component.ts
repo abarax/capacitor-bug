@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Plugins } from '@capacitor/core';
+
+const { Geolocation } = Plugins;
 
 @Component({
   selector: 'app-explore-container',
@@ -11,5 +14,10 @@ export class ExploreContainerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+
+   async getGeoloc(){
+       const l = await Geolocation.getCurrentPosition();
+       console.log('asdfasdf' + l);
+   }
 
 }
